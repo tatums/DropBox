@@ -1,0 +1,62 @@
+<div class='head'>
+
+<%= link_to 'Back', root_url, :class =>'back-button' %>
+
+<% if is_admin %>
+	<ul class="right-menu">
+		<li><%= link_to 'Users', users_url %></li>
+		<li><%= link_to 'Logs', logs_url %> </li>
+	</ul>
+<% end %>
+
+</div>
+
+
+<table class="smaller">
+	
+  <tr>
+    <th><%= order @search, :by => :customer_number %></th>
+	<th><%= order @search, :by => :first %></th>
+    <th><%= order @search, :by => :last %></th>
+	<th><%= order @search, :by => :expected_ship_date, :as => "Ship Date"%></th>
+    <th><%= order @search, :by => :first_order_number %></th>
+    <th><%= order @search, :by => :processed %></th>
+
+  </tr>
+  
+	<tr>
+	  <%form_for @search do |f|%>
+	
+    <th><%= f.text_field :customer_number_like, :size => 10 %></th>
+    <th><%= f.text_field :first_like, :size => 16 %></th>
+	  <th><%= f.text_field :last_like, :size => 16 %></th>
+    <th><%= f.select :expected_ship_date_like, Order.only_expected_ship_date, :size => 18 %></th>
+	  <th><%= f.text_field :first_order_number_like, :size => 12 %></th>
+      <th><%= f.select :processed_equals, Order::PROCESSED %></th>
+ 	<th><%= f.submit 'Search' %></th>
+	  <% end %>
+	</tr>	
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%=link_to order.customer_number, view_path(order) %></td>
+    <td><%=link_to order.first, view_path(order) %></td>
+    <td><%=link_to order.last, view_path(order) %></td>
+    <td><%=link_to order.expected_ship_date.to_s(:long), view_path(order) %></td>
+    <td><%=link_to order.first_order(order), edit_order_path(order) %> 	</td>
+	<td><span class="<%= order.processed %>"><%= order.processed %></span></td>
+	<!-- <td class="delete-td"><span class="delete-button"><%# link_to 'Delete', destroy_path(order),:class =>'delete', :confirm => 'Are you sure?', :method => :delete %></span></td> -->
+
+	<td class="delete-td"><%= link_to 'Delete', destroy_path(order),:class =>'delete-button', :confirm => 'Are you sure?', :method => :delete %></td>
+
+</tr>
+<% end %>
+
+<tr>
+	<td class="paginate-td" colspan="7"><p><%= will_paginate @orders %></p></td>
+</tr>	
+
+</table>
+
+
+

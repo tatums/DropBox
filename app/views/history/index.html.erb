@@ -1,0 +1,46 @@
+<div class="head">
+	<%= link_to 'Back', admin_url, :class =>'back-button' %>
+	<%= link_to 'Reset Form', logs_url, :class => 'right-align' %> 
+</div>
+
+<table>
+	
+  <tr>
+    <th><%= order @search, :by => :user_name %></th>
+    <th><%= order @search, :by => :remote_ip %></th>
+    <th><%= order @search, :by => :body %></th>
+    <th><%= order @search, :by => :action_type %></th>
+    <th><%= order @search, :by => :created_at %></th>
+  </tr>
+
+  	<tr>
+	  <%form_for @search do |f|%>
+  	  <!--<th><%# f.select :category_like, Product.only_category.uniq,  :include_blank => true   %>  </th>    -->
+      <th><%= f.select :user_name_like, History.only_user_names.uniq, :include_blank => true, :size => 10 %></th>
+      <th><%= f.select :remote_ip_like, History.only_remote_ip.uniq, :include_blank => true, :size => 12%></th>
+	  <th><%= f.text_field :body_like, :size => 32 %></th>
+      <th><%= f.select :action_type_like, History.only_action_types.uniq, :include_blank => true, :size => 10 %></th>
+	  <th><%= f.text_field :created_at_equals, :size => 25 %></th>
+      <th><%= f.submit 'Filter' %></th>
+	  <% end %>
+	</tr>	
+
+
+<% @history.each do |history| %>
+  <tr class="<%= history.action_type %>">
+    <td><%=h history.user_name %></td>
+    <td><%=h history.remote_ip %></td>
+    <td><%=h history.body %></td>
+	<td><%=h history.action_type%></td>
+    <td><%=h history.created_at.strftime("%m/%d/%Y - %I:%M%p") %></td>
+
+  </tr>
+<% end %>
+<tr>
+	<td class="paginate-td" colspan="7"><p><%= will_paginate @orders %></p></td>
+</tr>	
+
+
+</table>
+
+<br />

@@ -1,0 +1,65 @@
+<div class="head">
+	<%= link_to 'Back', orders_path, :class => 'left-align',:class => 'back-button' %>
+</div>
+
+
+<div id="new-form">
+<% form_for(@order) do |f| %>
+  <%= f.error_messages %>
+
+<div id="left-col">
+<fieldset class="fieldset"> 
+<legend>Customer Details</legend> 
+
+  <p>
+    <%= f.label :customer_number %><br />
+    <%= f.text_field :customer_number %>
+  </p>
+  <p>
+    <%= f.label :first, 'First Name' %><br />
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last, 'Last Name'%><br />
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= f.label :first_order_number %><br />
+    <%= f.text_field :first_order_number %>
+  </p>
+  <p><%=f.label :expected_ship_date %><br />
+	<%= f.calendar_date_select :expected_ship_date, :year_range => [0.years.ago, 3.years.from_now] %>
+  </p>
+ </fieldset> 
+</div>
+
+<div id="right-col">
+<fieldset class="fieldset"> 
+<legend>Credit Card</legend> 
+
+  <%# f.hidden_field :exp_year %>
+  <%# f.hidden_field :exp_month %>
+
+<p>
+	<%= f.label :last_four, 'Last Four Digits' %><br />
+    
+	<%=	@order.last_four %>
+</p>	
+
+  <p>Expires:
+  	<%= @order.exp_month %> / <%= @order.exp_year %>   
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+ </fieldset> 
+</div>
+
+
+</div>
+
+
+<% end %>
+
+
+</div>

@@ -1,0 +1,48 @@
+<div class="head">
+
+<%# link_to 'Back', root_url, :class =>'back-button' %>
+<%# link_to 'Future Orders Report', future_orders_path, :class =>"right-align" %>
+</div>
+
+<table class="smaller">
+  
+<%= link_to_function 'Search', visual_effect(:toggle_blind, :search_container, :duration => 1.0) %>
+
+
+	 <tr>
+	    <th><%= order @search, :by => :customer_number %></th>
+		<th><%= order @search, :by => :first %></th>
+	    <th><%= order @search, :by => :last %></th>
+		<th><%= order @search, :by => :expected_ship_date, :as => "Ship Date"%></th>
+	    <th><%= order @search, :by => :first_order_number, :as => "Order Number" %></th>
+	    <th><%= order @search, :by => :processed %></th>
+	 </tr>
+	<tr id="search_container" style="display: none">
+		<%= render :partial => 'search' %>
+	</tr>
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%=link_to order.customer_number, order_path(order) %></td>
+    <td><%=link_to order.first, edit_order_path(order) %></td>
+    <td><%=link_to order.last, edit_order_path(order) %></td>
+    <td><%=link_to order.expected_ship_date.to_s(:long), edit_order_path(order) %></td>
+    <td><%=link_to order.first_order(order), edit_order_path(order) %> 	</td>
+    
+	<td><span class="<%= order.processed %>"><%= order.processed %></span></td>
+  </tr>
+<% end %>
+
+
+
+<tr>
+	<td class="paginate-td" colspan="6"><p><%= will_paginate @orders %></p></td>
+</tr>	
+
+
+
+</table>
+
+<%# link_to "Download to Excel" , "./data/#{@filename}.xls", :class =>"excel-link"%>
+
+<%# link_to "Download to Excel" , excel_download_path, :object=>@excel_orders, :class =>"excel-link"%>

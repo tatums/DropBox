@@ -1,0 +1,38 @@
+  [4;36;1mOrder Create (10.0ms)[0m   [0;1mINSERT INTO "orders" ("exp_month", "updated_at", "card_type", "exp_year", "last", "credit_card", "first", "first_order_number", "customer_number", "expected_ship_date", "created_at") VALUES('12', '2010-10-11 19:22:47', 'visa', '2010', 'Szymczak', '1111222233334444', 'Tatum', 12345, 36568, '2010-12-12', '2010-10-11 19:22:47')[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mOrder Create (10.0ms)[0m   [0;1mINSERT INTO "orders" ("exp_month", "updated_at", "card_type", "exp_year", "last", "credit_card", "first", "first_order_number", "customer_number", "expected_ship_date", "created_at") VALUES('12', '2010-10-11 19:23:17', 'visa', '2010', 'Szymczak', '1111222233334444', 'Tatum', 12345, 36568, '2010-12-12', '2010-10-11 19:23:17')[0m
+  [4;36;1mOrder Create (10.0ms)[0m   [0;1mINSERT INTO "orders" ("exp_month", "updated_at", "card_type", "exp_year", "last", "credit_card", "first", "first_order_number", "customer_number", "expected_ship_date", "created_at") VALUES('12', '2010-10-11 20:47:10', 'visa', '2010', 'Szymczak', 'N1OmNNi7/Zp4JxfZMrvZX9To4J7lz61ZxuyYfuWr46p+DeOzNhT0ySAiHd8h
+hfvk8sWU2fiQJo3EohPYZ37c4mS8iOkaoD6YFVATcFGozZbi9los0ueClp20
+0OW+OhAeghZtEQ1PcFR+5Xn+10hvtL0PR6zO+rns4vH4/Egp1qs=
+', 'Tatum', 12345, 36568, '2010-12-12', '2010-10-11 20:47:10')[0m
+  [4;36;1mOrder Create (10.0ms)[0m   [0;1mINSERT INTO "orders" ("exp_month", "updated_at", "card_type", "exp_year", "last", "credit_card", "first", "first_order_number", "customer_number", "expected_ship_date", "created_at") VALUES('12', '2010-10-11 20:48:01', 'visa', '2010', 'Szymczak', 'cmT9RAzYUfv1OkwtXWmXdt0dX02dxAU+1diIyTbDJoHUS4tldb40uZ8lviRT
+AYRqBsNxMdApFDX6NgAwQ/RCDYuGIchHukPjwzdYJ4nLENWQEWCIne+radKM
+HA9XKD61ic5h53XRdLyxNjBMDaTKyfNy1syMCAttTmwXWB4XNuM=
+', 'Tatum', 12345, 36568, '2010-12-12', '2010-10-11 20:48:01')[0m
+  [4;36;1mOrder Create (10.0ms)[0m   [0;1mINSERT INTO "orders" ("exp_month", "updated_at", "card_type", "exp_year", "last", "credit_card", "first", "first_order_number", "customer_number", "expected_ship_date", "created_at") VALUES('12', '2010-10-11 20:50:05', 'visa', '2010', 'Szymczak', '2pm7431zgpo8gc0a27ijnA50W5DLEAWt9rrUhOArDj8cu+VsuiILUIunEUIN
+UWAuadHO3g0R6H90qHELd7iCcBZ9eqWI/2c3Z3+CpzWwLrZhna9+f0sdbE/d
+vJr1xWZU5VH9NhQgVPPSP2N5k/O2clbhxH8H5lBosE2d+2RXjC8=
+', 'Tatum', 12345, 36568, '2010-12-12', '2010-10-11 20:50:05')[0m

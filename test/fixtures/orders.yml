@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+ customer_number: 12345
+ first: Tatum
+ last: Szymczak
+ first_order_number: 12345
+ card_type: visa
+ credit_card: 1111222233334444
+ expected_ship_date: 12/12/2010
+ exp_month: 12
+ exp_year: 2010
+
+one:
+ customer_number: 12345
+ first: Tatum
+ last: Szymczak
+ first_order_number: 12345
+ card_type: visa
+ credit_card: 1111222233334444
+ expected_ship_date: 12/12/2010
+ exp_month: 12
+ exp_year: 2010

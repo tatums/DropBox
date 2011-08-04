@@ -1,0 +1,47 @@
+<div class="head">
+	<%= link_to 'Back', users_url, :class =>'back-button' %>
+</div>
+
+<div id="show-container">
+	<h2><%= @user.full_name %></h2>
+
+	<div id="left-col">
+		<p>
+			<% if @user.is_administrator %>
+				Administrator
+			<% else %>
+				User
+			<% end%>		
+		</p>
+
+			<p>
+			  <b>Login:</b>
+			  <%=h @user.username %>
+			</p>
+
+			<p>
+			  <b>Login count:</b>
+			  <%=h @user.login_count %>
+			</p>
+
+
+	</div>
+	<div id="right-col">
+
+			<p>
+			  <b>Last login at:</b>
+			  <% unless @user.last_login_at.nil? %>
+			  	<%=h @user.last_login_at.to_datetime.strftime("%a %b %d, %Y at %I:%M%p") %>
+			  <% end %>
+			</p>
+
+
+			<p>
+			  <b>Last login ip:</b>
+			  <%=h @user.last_login_ip %>
+			</p>
+
+
+	</div>
+</div>
+<%= link_to 'Edit', edit_user_path(@user) %>

@@ -1,0 +1,25 @@
+<% form_for @search do |f| %><p>
+  <p>
+    <%= f.label :customer_number %><br />
+    <%= f.text_field :customer_number %>
+  </p>
+	<p>
+	<%= f.submit 'Search', :class => 'search' %>
+	</p>
+
+<% end %>
+	
+<table>
+	<tr>
+		<th>Name</th>
+		<th>MOM Cust Number</th>
+	</tr>
+<% @orders.each do |order|%>
+	<tr>
+		<td><%= link_to order.full_name, search_path(order) %></td>
+		<td><%= link_to order.customer_number, search_path(order) %></td>
+
+	</tr>
+
+<% end %>
+</table>

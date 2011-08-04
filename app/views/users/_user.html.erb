@@ -1,0 +1,48 @@
+<% form_for @user do |form| %>   
+<%= form.error_messages %>   
+
+<ol class="formList">   
+	<div id="show-container">
+		<div id="left-col">
+
+  <li>   
+    <%= form.label :first, "First Name" %> <br />  
+    <%= form.text_field :first %>   
+  </li>   
+  <li>   
+    <%= form.label :last, "Last Name" %>   <br />
+    <%= form.text_field :last %>   
+  </li>   
+  <li>   
+    <%= form.label :email, "Email" %>  <br /> 
+    <%= form.text_field :email %>   
+  </li>   
+  <li>   
+    <%= form.label :is_administrator, "Is this user an Admin?" %> <br />  
+    <%= form.check_box :is_administrator %>   
+  </li>   
+
+</div>
+<div id="right-col">
+
+
+  <li>   
+    <%= form.label :username, "Username" %><br />   
+    <%= form.text_field :username %>   
+  </li>   
+
+  <li>   
+    <%= form.label :password, "Password" %> <br />  
+    <%= form.password_field :password %>   
+  </li>   
+  <li>   
+    <%= form.label :password_confirmation, "Password confirmation" %>   <br />
+    <%= form.password_field :password_confirmation %>   
+  </li>   
+  <li>   
+    <%= form.submit "Submit" %>   
+  </li>  
+</div>
+</div> 
+</ol>   
+<% end %>  

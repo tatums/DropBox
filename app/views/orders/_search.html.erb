@@ -1,0 +1,15 @@
+<%# link_to 'Reset Search Form', orders_path, :class=>"right-align" %>
+<%form_for @search do |f|%>
+	<th><%= f.text_field :customer_number_like, :size => 12 %></th>
+	<th><%= f.text_field :first_like, :size => 12 %></th>
+	<th><%= f.text_field :last_like, :size => 12 %></th>
+	<th>
+		<%= label_tag 'Start'%>
+		<%= f.calendar_date_select :expected_ship_date_gte, :size => 14 %><br />
+		<%= label_tag 'End'%>
+		<%= f.calendar_date_select :expected_ship_date_lte, :size => 14 %>
+	</th>	
+	<th><%= f.text_field :first_order_number_like, :size => 18 %></th>
+	<th><%= f.select :processed_equals, Order::PROCESSED %></th>
+	<th><%= f.submit 'Search' %></th>
+ <% end %>

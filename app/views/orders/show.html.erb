@@ -1,0 +1,60 @@
+<div class="head">
+	<%= link_to 'Back', orders_path, :class => 'left-align',:class => 'back-button' %>
+	
+	
+	<% if @order.processed %>
+		<%= image_tag 'check_mark.gif', :title => "Processed by: #{@order.processed_by_name} At: #{@order.processed_at.to_s(:long)}", :class => 'right-align'%>
+		<p class='right-align processed-info'><span>Processed by: </span><%= @order.processed_by_name %></p>
+		<p class='right-align processed-info'><span>Processed by: </span><%= @order.processed_at.to_s(:long) %></p>
+
+	<% end %>	
+	
+	
+	
+</div>
+
+
+<div id="new-form">
+
+<div id="left-col">
+<fieldset class="fieldset"> 
+	<legend>Customer Details</legend> 
+
+	  <p>
+  	    <%= label :first, 'Customer Number' %><br />
+	    <%= @order.customer_number %>
+	  </p>
+	  <p>
+	    <%= label :first, 'First Name' %><br />
+	    <%= @order.first %>
+	  </p>
+	  <p>
+	    <%= label :last, 'Last Name'%><br />
+	    <%= @order.last %>
+	  </p>
+	  <p>
+	    <%= label :first_order_number, 'First Order Number' %><br />
+	    <%= @order.first_order_number %>
+	  </p>
+	  <p><%= label :expected_ship_date,  'Expected Ship Date' %><br />
+	    <%= @order.expected_ship_date.to_s(:long) %>
+	  </p>
+</fieldset> 
+</div><!--#left-col-->
+
+<div id="right-col">
+<fieldset class="fieldset"> 
+	<legend>Credit Card</legend> 
+
+	<p><%= label :last_four, 'Last Four Digits' %><br />
+    <%=	@order.last_four %>
+	</p>	
+
+  	<p>Expires:
+  	<%= @order.exp_month %> / <%= @order.exp_year %>   
+  	</p>
+</fieldset> 
+</div><!--#right-col-->
+
+</div><!--#new-form-->
+<%= link_to 'Edit Details', edit_order_path(@order), :class =>'edit-button' %>

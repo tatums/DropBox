@@ -1,0 +1,58 @@
+<div class="head">
+	<%= link_to 'Back', admin_path, :class =>'back-button' %>
+	
+	<% unless @order.processed %>
+		<%= button_to 'Processed Credit Card', process_cc_path(@order.id), :class => 'right-align process-cc' %>
+	<% end %>
+	
+		<% if @order.processed %>
+			<%= image_tag 'check_mark.gif', :title => "Processed by: #{@order.processed_by_name} At: #{@order.processed_at.to_s(:long)}", :class => 'right-align'%>
+			<p class='right-align processed-info'><span>Processed by: </span><%=link_to @order.processed_by_name, user_path(@order.processed_by) %></p>
+			<p class='right-align processed-info'><span>Processed at: </span><%= @order.processed_at.to_s(:long) %></p>
+
+		<% end %>	
+</div>
+
+<div id="show-container">
+	<h2>MOM Customer #: <%=h @order.customer_number %></h2>
+	
+	<div id="left-col">
+		
+		<p>
+		  <b>Name:</b>
+		  <%=h @order.full_name %>
+		</p>
+
+
+		<p>
+		  <b>First Order Number:</b>
+		  <%=h @order.first_order_number %>
+		</p>
+		<p>
+		  <b>Expected Ship Date:</b>
+		  <%=h @order.expected_ship_date.to_date.to_formatted_s(:rfc822) %>
+		</p>
+
+	</div>
+
+	<div id="right-col">
+		<p>
+		  <b>Credit card:</b>
+		  <%=h @order.card_type %>
+		</p>
+
+		<p>
+		  <b>Credit card:</b>
+		  <%=h @order.decrypted_cc_with_dashes %>
+
+		</p>
+
+		<p>
+		  <b>Expiration:</b>
+		  <%=h @order.exp_month %> / <%=h @order.exp_year %>
+
+		</p>
+	</div>
+</div>
+
+<%= link_to 'Destroy', destroy_path(@order), :class =>'delete', :confirm => 'Are you sure?', :method => :delete %>

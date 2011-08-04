@@ -1,0 +1,69 @@
+<div class="head">
+
+<%# link_to 'All Cards', orders_path, :class => 'left-align',:class => 'back-button' %>
+<%# link_to 'Admin', admin_path, :class => 'right-align' %>
+
+</div>
+
+<div id="new-form">
+<% form_for(@order) do |f| %>
+  <%= f.error_messages %>
+
+<span id="left-col">
+<fieldset class="fieldset"> 
+<legend>Customer Details</legend> 
+
+  <p>
+    <%= f.label :customer_number %><br />
+    <%= f.text_field :customer_number %>
+  </p>
+  <p>
+    <%= f.label :first, 'First Name' %><br />
+    <%= f.text_field :first %>
+  </p>
+  <p>
+    <%= f.label :last, 'Last Name'%><br />
+    <%= f.text_field :last %>
+  </p>
+  <p>
+    <%= f.label :first_order_number %><br />
+    <%= f.text_field :first_order_number %>
+  </p>
+  <p><%=f.label :expected_ship_date %><br />
+	<%= f.calendar_date_select :expected_ship_date, :year_range => [0.years.ago, 3.years.from_now] %>
+  </p>
+ </fieldset> 
+</span>
+
+<span id="right-col">
+<fieldset class="fieldset"> 
+<legend>Credit Card</legend> 
+
+
+  <p>
+    <%= f.label :credit_card %><br />
+    <%= f.text_field :credit_card %>
+  </p>
+
+  <p>
+  	<%= f.select :card_type, Order::CARD_TYPE, {:prompt => 'Select Card Type'}%>   
+  </p>
+
+  <p>
+  	<%= f.select :exp_month, Order::MONTH, {:prompt => 'Expiration Month'}%>   
+  </p>
+  <p>
+  	<%= f.select :exp_year, Order::YEAR, {:prompt => 'Expiration Year'}%>   
+  </p>
+  <p>
+    <%= f.submit 'Save' %>
+  </p>
+ </fieldset> 
+</span>
+
+
+
+<% end %>
+
+
+</div>

@@ -1,0 +1,24 @@
+<h1>Encrypted Records</h1>
+
+<table>
+	
+  <tr>
+    <th>Cust Numb</th>
+	<th>First</th>
+    <th>Last</th>
+    <th>Card Number</th>
+  </tr>
+  
+
+<% @orders.each do |order| %>
+  <tr>
+    <td><%=h order.customer_number %></td>
+    <td><%=h order.first %></td>
+    <td><%=h order.last %></td>
+    <td><%=h order.credit_card %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
